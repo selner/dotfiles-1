@@ -35,18 +35,22 @@ brew 'tree'                  # List directories in a tree structure; http://mama
 # brew 'memcached'
 # brew 'mysql'
 # brew 'nginx'
-# brew 'node'
+brew 'node'
+brew 'python@3'
 # brew 'redis'
 # brew 'yarn'
 
 # Apps
 cask '1password'
 #cask '1password-cli'
+cask 'a-better-finder-rename'
+cask 'a-better-finder-attributes'
 cask 'adobe-creative-cloud'
 cask 'adobe-creative-cloud-cleaner-tool'
 #cask 'aerial'
 #cask 'alfred'
 cask 'appcleaner'
+cask 'authy'
 #cask 'bartender'
 cask 'bbedit'
 #cask 'caffeine'
@@ -84,6 +88,7 @@ cask 'pycharm-ce'
 cask 'sourcetree'
 #cask 'screenflow'
 #cask 'skype'
+cask 'sonos-s1-controller'
 #cask 'slack'
 #cask 'steam'
 #cask 'sublime-text'
@@ -110,15 +115,20 @@ cask 'zoomus'
 #cask 'qlstephen'
 #
 # Fonts
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+#cask 'font-lato'
+#cask 'font-open-sans'
+#cask 'font-roboto'
+#cask 'font-source-code-pro-for-powerline'
+#cask 'font-source-code-pro'
+#cask 'font-source-sans-pro'
+#cask 'font-source-serif-pro'
 
 # Mac App Store
+mas 'iNet Network Scanner', id:403304796
+mas 'MacFamilyTree 9', id:1458866808
+mas 'Feedly', id:865500966
+mas 'Gemini 2', id:1090488118
+mas 'TripIt: Travel Planner', id:1475712010
 #mas 'Byword', id: 420212497
 #mas 'Giphy Capture', id: 668208984
 #mas 'Keynote', id: 409183694
