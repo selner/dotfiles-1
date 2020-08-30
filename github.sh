@@ -1,6 +1,12 @@
 #!/bin/sh
 
 echo "Configuring Github and cloning repositories..."
+#---------------------------
+#  LOAD ENV VARIABLES
+#---------------------------
+
+export $(grep -v '^#' .env | xargs)
+
 CODE=$HOME/Dropbox/code
 mkdir -pv "$CODE"
 
