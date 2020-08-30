@@ -79,7 +79,8 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
+plugins=( alias-finder aws bbedit brew colored-man-pages common-aliases copydir copyfile docker docker-compose dotenv extract git jsontools last-working-dir node npm npx osx rsync urltools vi-mode virtualenv vscode z zsh_reload )
 
 source $ZSH/oh-my-zsh.sh
 
