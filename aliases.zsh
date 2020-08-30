@@ -55,6 +55,8 @@ alias cleanupDS='find . -type f -name '\''*.DS_Store'\'' -ls -delete'
 
 alias datestamp='date +"%Y%m%d_%H%M_%S'
 
+alias tree="tree -CFa -I 'rhel.*.*.package|.git' --dirsfirst"
+
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 #ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
 #ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
@@ -75,6 +77,7 @@ alias watch="npm run watch"
 #---------------------------
 #  NETWORKING
 #---------------------------
+alias wifipwd='security find-generic-password -wa $WIFISSID'
 
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
@@ -89,6 +92,16 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 alias nsl='nslookup -query=any '
 alias openPorts='sudo lsof -i | grep LISTEN'
 alias showBlocked='sudo ipfw list'
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
 
 
 #---------------------------
@@ -121,6 +134,20 @@ alias topForever='top -l 9999999 -s 10 -o cpu'
 #   ------------------------------------------------------------
 #    my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
+#---------------------------
+#  SERVERS
+#---------------------------
+
+alias sshstatus='sudo systemsetup -getremotelogin'
+alias sshenable='sudo systemsetup -f -setremotelogin on'
+alias sshdisable='sudo systemsetup -f -setremotelogin off'
+
+alias sshrvelo='ssh nasadmin@rvelonas.local -p 9955 -i ~/.ssh/id_rsa_rvelonas'
+
+## replace mac with your actual server mac address #
+#alias wakeupnas01='/usr/bin/wakeonlan 00:11:32:11:15:FC'
+#alias wakeupnas02='/usr/bin/wakeonlan 00:11:32:11:15:FD'
+#alias wakeupnas03='/usr/bin/wakeonlan 00:11:32:11:15:FE'
 
 #---------------------------
 #  OTHER SHORTCUTS
@@ -136,11 +163,17 @@ alias dr='defaults read '
 alias history=omz_history
 alias run-help=man
 
+# system details
+	alias hardware="/usr/sbin/system_profiler SPHardwareDataType"
 
-#---------------------------
-#  SERVERS
-#---------------------------
-alias sshrvelo='ssh nasadmin@rvelonas.local -p 9955 -i ~/.ssh/id_rsa_rvelonas'
+# name and speed CPU
+	alias cpu="sysctl -n machdep.cpu.brand_string"
+
+# restart the Finder
+	alias restartfinder="killall -kill Finder"
+
+# restart the Dock
+	alias restartdock="killall -kill Dock"
 
 # alias show_options='shopt'                  # Show_options: display bash options settings
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
@@ -170,3 +203,6 @@ alias showall="defaults write com.apple.finder CreateDesktop -bool true && killa
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# macOS version
+	alias osver="tail /System/Library/CoreServices/SystemVersion.plist | grep -A 1 "ProductVersion""
