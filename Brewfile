@@ -136,3 +136,9 @@ mas 'TripIt: Travel Planner', id:1475712010
 #mas 'Spark', id: 1176895641
 #mas 'Things', id: 904280696
 #mas 'Tweetbot', id: 1384080005
+
+
+# Override Gatekeeper block for apps we just installed
+ spctl --add /Applications/VLC.app
+ spctl --add /Applications/Sourcetree.app
+
