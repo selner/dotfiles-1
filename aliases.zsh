@@ -13,7 +13,7 @@ alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable 
 alias l='ls -lahpt'
 alias la='ls -lAhpt'
 alias ll='ls -lhpt'
-alias ls='ls -Gpt'
+alias ls='ls -lhpAFG'
 alias lsa='ls -lahpt'
 alias lt='tree'
 
@@ -39,7 +39,7 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+alias ll='ls -FGlASa'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 # cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 
