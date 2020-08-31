@@ -18,7 +18,6 @@ alias lsa='ls -lahpt'
 alias lt='tree'
 
 alias md='mkdir -p'
-alias -='cd -'
 alias ...=../..
 alias ....=../../..
 alias .....=../../../..
